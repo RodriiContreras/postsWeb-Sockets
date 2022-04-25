@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Header from '../components/Header'
-import { Text ,Box,Flex,Button, Circle} from '@chakra-ui/react'
+import { Text ,Box,Flex,Button, Circle, Link} from '@chakra-ui/react'
 import Image from 'next/image'
 import Iphone from  '../images/iphone.png'
 import Tablet from  '../images/tablet.png'
@@ -25,7 +25,7 @@ export default function Home() {
         <Box position='absolute' w='460px' ml='380px' mt='470px' p={4} color='white'>
         <Flex>
          <Button colorScheme='blue' w='200px' size='lg'>Learn More</Button>
-         <Button colorScheme='blue' ml='20px' w='150px' size='lg'>Sign in</Button>
+         <Link style={{'textDecoration':'none'}} href='/signin'><Button colorScheme='blue' ml='20px' w='150px' size='lg'>Sign in</Button></Link>
         </Flex>
       </Box>
       <Box position='absolute' w='460px' ml='390px' mt='550px' p={4} color='white'>
