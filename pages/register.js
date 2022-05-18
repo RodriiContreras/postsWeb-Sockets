@@ -18,7 +18,8 @@ const register =() => {
       password:'',
       email:'',
       password1:'',
-      cellphone:''
+      cellphone:'',
+      image:'',
     },
     validationSchema:Yup.object({
 
@@ -40,10 +41,15 @@ const register =() => {
 
       cellphone:
       Yup.number()
-      .required('La empresa es necesaria')
+      .required('Cellphone required'),
+
+      image:
+      Yup.string()
+      .required('')
 
     }),
     onSubmit: async valores=>{
+      console.log(valores)
       const {nickname, password,password1,email,cellphone} = valores;
       if(password === password1){
          fetch('http://localhost:8080/auth/post-createUser',{
@@ -92,6 +98,9 @@ const register =() => {
      <Flex direction='column' position='absolute' border='1px solid #EDF0F3' background='white' p={12} rounded={4}>
         <form style={{'width':'250px'}} onSubmit={formik.handleSubmit}>
          <Heading mb={6}>Register</Heading>
+         <label style={{marginBottom:'14px'}}>Set your profile's image</label>
+         <div style={{marginLeft:'35%',marginBottom:'6px',border:'2px solid #EDF0F3',width:'70px',height:'70px',borderRadius:'50%'}}></div>
+         <input style={{'marginBottom':'20px',marginLeft:'20%',width:'156px'}}  name='image' type='file' value={formik.values.image} onChange={formik.handleChange} onBlur={formik.handleBlur} variant='filled'/> 
          <Input  mb={6} placeholder='Type your Nickname' name='nickname' type='nickname' value={formik.values.nickname} onChange={formik.handleChange} onBlur={formik.handleBlur} variant='filled'/> 
          <Input  mb={6} placeholder='Type your Email' type='email' name='email'  value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} variant='filled'/> 
          <Input  mb={6} placeholder='***********' type='password' name='password'  value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} variant='filled'/> 

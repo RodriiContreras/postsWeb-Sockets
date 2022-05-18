@@ -1,10 +1,11 @@
 import React from 'react'
 import HeaderFeed from '../components/HeaderFeed'
 import Head from 'next/head'
+import ScrollPostsFeed from '../components/ScrollPostsFeed'
 
 const feed =() => {
   return (
-    <div>
+    <div style={{background:'#F3F2EF',height:'auto'}}>
          <Head>
         <title>Feed</title>
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -13,6 +14,7 @@ const feed =() => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <HeaderFeed/>
+        <ScrollPostsFeed/>
     </div>
   )
 }
